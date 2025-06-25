@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../../routes/app_pages.dart';
 import '../../../../../utils/app_color.dart';
 import '../../../../../utils/app_style.dart';
 import '../../../../global/utils/app_layout_helper.dart';
@@ -93,6 +94,8 @@ class ForgotPasswordScreen extends GetView<AuthController> {
         Timer( Duration(seconds: 2), () {
           controller.isForgotPasswordLoading(false);
           controller.emailController.clear();
+          Get.offAllNamed(Routes.SIGN_IN);
+
 
 
         });

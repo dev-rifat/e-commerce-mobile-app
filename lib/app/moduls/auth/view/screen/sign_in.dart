@@ -119,11 +119,11 @@ class SignInScreen extends StatelessWidget {
     controller.passwordController.text = "12345678";
 
     controller.isSignInLoading(true);
-
     Timer(const Duration(seconds: 2), () {
       controller.isSignInLoading(false);
       controller.emailController.clear();
       controller.passwordController.clear();
+      Get.offAllNamed(Routes.MAIN);
     });
   }
 

@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import '../app/main/views/screen/main_screen.dart';
 import '../app/moduls/auth/view/screen/forgot_password.dart';
 import '../app/moduls/auth/view/screen/sign_in.dart';
 import '../app/moduls/auth/view/screen/sign_up.dart';
@@ -34,10 +35,10 @@ class AppPages {
     ),
 
 
-      // GetPage(
-      //   name: _Paths.MAIN,
-      //   page: () => const ZoomMainDrawer(),
-      // ),
+      GetPage(
+        name: _Paths.MAIN,
+        page: () => const MainNavScreen(),
+      ),
 
 
 

@@ -123,6 +123,8 @@ class SignUpScreen extends GetView<AuthController> {
     Future.delayed(const Duration(seconds: 2), () {
       controller.isSignUpLoading(false);
       _clearForm();
+      Get.offAllNamed(Routes.MAIN);
+
     });
   }
 

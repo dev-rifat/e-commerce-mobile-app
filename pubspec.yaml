@@ -6,7 +6,7 @@ description: "A new Flutter project."
 #onboarding
 #signup
 #login
-#home.
+#main.
 #   search
 #    banner
 #    category
@@ -91,6 +91,7 @@ flutter:
     - assets/images/json/
     - assets/images/png/
     - assets/images/svg/
+    - assets/images/products/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
