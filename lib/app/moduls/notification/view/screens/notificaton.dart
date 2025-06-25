@@ -67,6 +67,7 @@ class NotificationPage extends StatelessWidget {
         itemBuilder: (context, index) {
           final notification = notifications[index];
           return ListTile(
+
             leading:  Icon(Icons.notifications, color:AppColor.primaryColor),
             title: Text(
               notification.title,
