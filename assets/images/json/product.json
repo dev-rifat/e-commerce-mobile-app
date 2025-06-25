@@ -1,0 +1,41 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Men's Wear",
+      "price": 199.99,
+      "image": "assets/images/products/pro-3.png",
+
+      "category": "Casual Wear"
+    },
+    {
+      "id": 2,
+      "name": "Nike Air Max",
+      "price": 123.99,
+      "image": "assets/images/products/pro-2.png",
+      "category": "Fashion"
+    },{
+      "id": 3,
+      "name": "Nike Air Max",
+      "price": 999.99,
+      "image": "assets/images/products/pro-2.jpg",
+      "category": "Apparel"
+    },{
+      "id": 4,
+      "name": "Nike Air Max",
+      "price": 121.99,
+      "image": "assets/images/products/pro-1.jpg",
+
+      "category": "Men's Wear"
+    },
+    {
+      "id": 5,
+      "name": "Wooden Dining Table",
+      "price": 259.99,
+      "image": "assets/images/products/pro-2.png",
+      "category": "Wardrobe"
+    }
+  ]
+}
+
+

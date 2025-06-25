@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../../../../utils/app_color.dart';
+import '../../../moduls/add_to_cart/view/screens/add_to_cart_screen.dart';
 import '../../../moduls/dashboard/view/screens/home.dart';
+import '../../../moduls/oder_screen.dart';
+import '../../../moduls/profile/view/screens/profile_screen.dart';
 
 class MainNavScreen extends StatefulWidget {
   const MainNavScreen({super.key});
@@ -15,9 +18,9 @@ class _MainNavScreenState extends State<MainNavScreen> {
 
   final List<Widget> _screens = [
     HomeScreen(),
-     Container(),
-     Container(),
-     Container(),
+    CartPage(),
+    OrderListPage(),
+    ProfileScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -36,9 +39,9 @@ class _MainNavScreenState extends State<MainNavScreen> {
         selectedItemColor: AppColor.primaryColor,
         unselectedItemColor: Colors.grey,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.store), label: 'Shop'),
-          BottomNavigationBarItem(icon: Icon(Icons.category), label: 'Category'),
+          BottomNavigationBarItem(icon: Icon(Icons.store), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.shopping_cart), label: 'Cart'),
+          BottomNavigationBarItem(icon: Icon(Icons.category), label: 'Orders'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Me'),
         ],
       ),

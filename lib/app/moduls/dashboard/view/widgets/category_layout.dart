@@ -1,5 +1,3 @@
-// File: category_list.dart
-
 import 'package:flutter/material.dart';
 
 class CategoryList extends StatelessWidget {

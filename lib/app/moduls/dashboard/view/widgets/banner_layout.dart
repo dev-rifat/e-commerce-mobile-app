@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:e_com_cub/app/global/utils/custom_spacer.dart';
 import 'package:e_com_cub/utils/images.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../../utils/app_color.dart';
 import '../../../../../utils/app_layout.dart';
 

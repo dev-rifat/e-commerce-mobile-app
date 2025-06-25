@@ -1,12 +1,15 @@
 import 'package:e_com_cub/utils/app_color.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../../../utils/app_layout.dart';
-import '../../../../../utils/images.dart';
 import '../../../../global/utils/app_container_helper.dart';
+import '../../controllers/home_controller.dart';
+import '../../models/product_model.dart';
 
 class ProductCard extends StatelessWidget {
-  const ProductCard({super.key});
+  final Product product;
+  const ProductCard({super.key,required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +33,7 @@ class ProductCard extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
                 image:  DecorationImage(
-                  image: AssetImage(AppImages.pro_2),
+                  image: AssetImage(product.image),
                   fit: BoxFit.fitHeight,
                 ),
               ),
@@ -38,8 +41,8 @@ class ProductCard extends StatelessWidget {
             const SizedBox(height: 8),
 
             // Title
-            const Text(
-              'Taylor Plush 4-Piece Modular Chaise ...',
+             Text(
+              product.name,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
@@ -48,39 +51,51 @@ class ProductCard extends StatelessWidget {
             const SizedBox(height: 6),
 
             // Price + Add to Cart Icon
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  '\$293.00',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15,
-                  ),
-                ),
-                InkWell(
-                  onTap: () {
-                    // Handle add to cart
-                  },
-                  borderRadius: BorderRadius.circular(8),
-                  child: Container(
-                    padding: const EdgeInsets.all(2),
-                    decoration: BoxDecoration(
-                      color: AppColor.primaryColor,
-                      borderRadius: BorderRadius.circular(90),
-                    ),
-                    child: const Icon(
-                      Icons.add,
-                      color: Colors.white,
-                      size: 18,
-                    ),
-                  ),
-                )
-              ],
-            ),
+           _addToCartIcon(context, product),
           ],
         ),
       ),
     );
+  }
+
+  Widget _addToCartIcon(BuildContext context, Product product) {
+    final ProductController controller = Get.find<ProductController>();
+
+    return Obx(() {
+      final isInCart = controller.cart.any((p) => p.id == product.id);
+
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            '\$${product.price.toStringAsFixed(2)}',
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 15,
+            ),
+          ),
+          InkWell(
+            onTap: () {
+              if (!isInCart) {
+                controller.addToCart(product.id);
+              }
+            },
+            borderRadius: BorderRadius.circular(8),
+            child: Container(
+              padding: const EdgeInsets.all(2),
+              decoration: BoxDecoration(
+                color: isInCart ? AppColor.successColor : AppColor.primaryColor,
+                borderRadius: BorderRadius.circular(90),
+              ),
+              child: Icon(
+                isInCart ? Icons.done : Icons.add,
+                color: Colors.white,
+                size: 18,
+              ),
+            ),
+          ),
+        ],
+      );
+    });
   }
 }
