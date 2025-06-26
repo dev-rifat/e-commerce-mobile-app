@@ -16,13 +16,13 @@
       "category": "Fashion"
     },{
       "id": 3,
-      "name": "Nike Air Max",
+      "name": "Men's Cotton",
       "price": 999.99,
       "image": "assets/images/products/pro-2.jpg",
       "category": "Apparel"
     },{
       "id": 4,
-      "name": "Nike Air Max",
+      "name": "Pepe Jeans",
       "price": 121.99,
       "image": "assets/images/products/pro-1.jpg",
 

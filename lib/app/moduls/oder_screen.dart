@@ -16,6 +16,8 @@ class OrderListPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("My Orders"),
         centerTitle: true,
+        leading: const SizedBox.shrink(),
+
       ),
       body: Obx(() {
         final orders = controller.orders;
@@ -23,7 +25,7 @@ class OrderListPage extends StatelessWidget {
           return const Center(
             child: Text(
               "No orders placed yet.",
-              style: TextStyle(fontSize: 16),
+              style: TextStyle(fontSize: 15),
             ),
           );
         }
