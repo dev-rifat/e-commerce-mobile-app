@@ -44,6 +44,8 @@ class HomeScreen extends GetView<ProductController> {
                       _buildSearchBar(),
                       customSpacerHeight(height: 20),
                       const AppBanner(),
+                      const SizedBox(height: 8),
+
                       const SizedBox(height: 20),
                       const CategoryList(),
                       _buildSectionHeader(),

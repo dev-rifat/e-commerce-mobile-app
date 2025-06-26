@@ -18,6 +18,7 @@ class CartPage extends StatelessWidget {
         title: const Text("My Cart"),
         leading: const SizedBox.shrink(),
         elevation: 1,
+        centerTitle: true,
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
       ),
