@@ -1,5 +1,7 @@
+import 'package:e_com_cub/app/moduls/auth/controllers/auth_controller.dart';
 import 'package:get/get.dart';
 import '../app/main/views/screen/main_screen.dart';
+import '../app/moduls/auth/bindings/auth_bindings.dart';
 import '../app/moduls/auth/view/screen/forgot_password.dart';
 import '../app/moduls/auth/view/screen/sign_in.dart';
 import '../app/moduls/auth/view/screen/sign_up.dart';
@@ -19,11 +21,12 @@ class AppPages {
       ),
 
 
-
     GetPage(
       name: _Paths.SIGN_IN,
       page: () => SignInScreen(),
+      binding: AuthBinding(),
     ),
+
     GetPage(
       name: _Paths.SIGN_UP,
       page: () => SignUpScreen(),

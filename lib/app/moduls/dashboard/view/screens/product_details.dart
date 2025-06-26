@@ -2,6 +2,7 @@ import 'package:e_com_cub/utils/app_color.dart';
 import 'package:e_com_cub/utils/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../global/view/widgets/success_message.dart';
 import '../../controllers/home_controller.dart';
 import '../../models/product_model.dart';
 
@@ -134,16 +135,8 @@ class ProductDetailsPage extends StatelessWidget {
                             ? null
                             : () {
                           controller.addToCart(product.id);
-                          Get.snackbar(
-                            "Added to Cart",
-                            "${product.name} has been added.",
-                            backgroundColor: AppColor.successColor.withOpacity(0.9),
-                            colorText: Colors.white,
-                            snackPosition: SnackPosition.TOP,
-                            margin: const EdgeInsets.all(12),
-                            borderRadius: 12,
-                            duration: const Duration(seconds: 2),
-                          );
+                          showSuccessMessage(message: "Product added to cart ${product.name} has been added.");
+
                         },
                       ),
                     );

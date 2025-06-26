@@ -1,6 +1,9 @@
 import 'package:e_com_cub/utils/images.dart';
 import 'package:get/get.dart';
 
+import '../../../../routes/app_pages.dart';
+import '../../../global/view/widgets/success_message.dart';
+
 class UserController extends GetxController {
   var userName = 'Rifat Hasan'.obs;
   var userEmail = 'rifat.dev@example.com'.obs;
@@ -9,6 +12,7 @@ class UserController extends GetxController {
   var emergencyContact = '+1 987 654 3210'.obs;
 
   void logout() {
-    Get.snackbar('Logged Out', 'You have been logged out successfully.');
+    showSuccessMessage(message: 'Logged Out You have been logged out successfully.');
+    Get.offAllNamed(Routes.SIGN_IN);
   }
 }

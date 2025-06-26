@@ -62,6 +62,7 @@ dependencies:
   get:
   get_storage:
   lottie:
+  fluttertoast:
 
 dev_dependencies:
   flutter_test:

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../../utils/app_layout.dart';
 import '../../../../global/utils/app_container_helper.dart';
+import '../../../../global/view/widgets/success_message.dart';
 import '../../controllers/home_controller.dart';
 import '../../models/product_model.dart';
 
@@ -78,6 +79,7 @@ class ProductCard extends StatelessWidget {
             onTap: () {
               if (!isInCart) {
                 controller.addToCart(product.id);
+                showSuccessMessage(message: "Product added to cart");
               }
             },
             borderRadius: BorderRadius.circular(8),

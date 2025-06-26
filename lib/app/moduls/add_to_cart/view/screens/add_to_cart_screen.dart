@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../../utils/app_color.dart';
 import '../../../../../utils/app_style.dart';
+import '../../../../global/view/widgets/dialog_widget.dart';
 import '../../../dashboard/controllers/home_controller.dart';
 import '../../../dashboard/models/product_model.dart';
 
@@ -118,6 +119,7 @@ class CartPage extends StatelessWidget {
                       ),
                       onPressed: () {
                         controller.placeOrder();
+                        showOrderSuccessDialog();
                         Get.snackbar(
                           "Order Placed",
                           "Your order has been placed successfully!",
