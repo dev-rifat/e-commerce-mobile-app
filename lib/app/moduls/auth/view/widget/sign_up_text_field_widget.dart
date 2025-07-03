@@ -39,6 +39,12 @@ emailExp() {
       r'^[\w-]+(\.[\w-]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,})$';
   return pattern;
 }
+
+
+final passwordRegex = RegExp(
+    r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&*!]).{8,}$'
+);
+
 userNameField(controller) {
   return CustomInputField(
     hitText: AppString.text_user_name.tr,
@@ -80,17 +86,12 @@ userPhoneNumberField(controller) {
       color: AppColor.hintColor,
       fontSize: Dimensions.fontSizeDefault + 1,
     ),
-    validator: (value) {
-      if (value!.isEmpty) {
-        return AppString.the_email_field_is_required;
-      } else {
-        return null;
-      }
-    },
+
+
   );
 }
 
-userPasswordField({hintText, TextEditingController? controller}) {
+userPasswordField({String? hintText, TextEditingController? controller}) {
   return PasswordInputField(
     controller: controller ?? Get.find<AuthController>().passwordController,
     borderColor: Colors.transparent,
@@ -98,13 +99,14 @@ userPasswordField({hintText, TextEditingController? controller}) {
       color: AppColor.hintColor,
       fontSize: Dimensions.fontSizeDefault + 1,
     ),
-    hitText: "Enter password",
+    hitText: hintText ?? "Enter password",
     validator: (value) {
-      if (value!.isEmpty) {
+      if (value == null || value.isEmpty) {
         return AppString.the_password_field_is_required;
-      } else {
-        return null;
+      } else if (!passwordRegex.hasMatch(value)) {
+        return "Weak password. Use A-Z, a-z, 0-9 & symbol.";
       }
+      return null;
     },
     prefixIcon: Icon(
       Icons.lock_open_outlined,
@@ -113,21 +115,28 @@ userPasswordField({hintText, TextEditingController? controller}) {
   );
 }
 
-userConfirmPasswordField({hintText, TextEditingController? controller}) {
+userConfirmPasswordField({String? hintText, TextEditingController? controller}) {
+  final authController = Get.find<AuthController>();
+  final confirmController = controller ?? authController.confirmPassController;
+
   return PasswordInputField(
-    controller: controller ?? Get.find<AuthController>().confirmPassController,
+    controller: confirmController,
     borderColor: Colors.transparent,
     hintStyle: AppStyle.normal_text_black.copyWith(
       color: AppColor.hintColor,
       fontSize: Dimensions.fontSizeDefault + 1,
     ),
-    hitText: "Enter confirm password",
+    hitText: hintText ?? "Enter confirm password",
     validator: (value) {
-      if (value!.isEmpty) {
+      final password = authController.passwordController.text.trim();
+      final confirmPassword = value?.trim() ?? '';
+
+      if (confirmPassword.isEmpty) {
         return AppString.the__confirm_password_field_is_required;
-      } else {
-        return null;
+      } else if (password != confirmPassword) {
+        return "Passwords do not match";
       }
+      return null;
     },
     prefixIcon: Icon(
       Icons.lock_open_outlined,
