@@ -26,8 +26,10 @@ class SearchScreen extends StatelessWidget {
   }
 
   List _getFilteredProducts() {
-    if (searchQuery.isEmpty) return controller.products;
-    return controller.products.where((product) {
+    List filteredByCategory = controller.filteredProducts;
+
+    if (searchQuery.isEmpty) return filteredByCategory;
+    return filteredByCategory.where((product) {
       return product.name.toLowerCase().contains(searchQuery.value);
     }).toList();
   }
@@ -82,7 +84,9 @@ class SearchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Search Product"),
+        title: Text(controller.selectedCategory.value == 'All'
+            ? "All Products"
+            : controller.selectedCategory.value),
       ),
       body: Column(
         children: [

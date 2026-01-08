@@ -111,31 +111,8 @@ class SignUpScreen extends GetView<AuthController> {
   }
 
   void _handleSignUp() {
-    final c = controller;
-
-    // Optional: Autofill for testing (should be removed or wrapped in debug mode)
-    if (c.userNameController.text.isEmpty &&
-        c.emailController.text.isEmpty &&
-        c.passwordController.text.isEmpty &&
-        c.confirmPassController.text.isEmpty) {
-      // Only for testing or development
-      c.userNameController.text = "rifat.dev";
-      c.emailController.text = "rifat.dev@gmail.com";
-      c.passwordController.text = "Admin@123";
-      c.confirmPassController.text = "Admin@123";
-      c.phoneController.text = "+11-078535325";
-    }
-
-    // Validate form before proceeding
     if (_formKey.currentState?.validate() ?? false) {
-      c.isSignUpLoading(true);
-
-      // Simulate a delay (e.g. API call)
-      Future.delayed(const Duration(seconds: 2), () {
-        c.isSignUpLoading(false);
-        _clearForm();
-        Get.offAllNamed(Routes.MAIN);
-      });
+      controller.signUp();
     }
   }
 

@@ -5,6 +5,8 @@ import '../../../../global/utils/app_container_helper.dart';
 import '../../../../global/utils/custom_spacer.dart';
 import '../../../../global/view/widgets/custom_section_header.dart';
 import '../../../notification/view/screens/notificaton.dart';
+import '../../../profile/controllers/profile_controller.dart';
+import '../../../profile/view/screens/profile_screen.dart';
 import '../../controllers/home_controller.dart';
 import '../widgets/banner_layout.dart';
 import '../widgets/category_layout.dart';
@@ -23,6 +25,7 @@ class HomeScreen extends GetView<ProductController> {
     if (!Get.isRegistered<ProductController>()) {
       Get.put(ProductController());
     }
+
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -52,7 +55,6 @@ class HomeScreen extends GetView<ProductController> {
                       const SizedBox(height: 12),
                       _buildProductList(),
                       const SizedBox(height: 112),
-
                     ],
                   ),
                 ),
@@ -81,9 +83,12 @@ class HomeScreen extends GetView<ProductController> {
   }
 
   Widget _buildProfileAvatar() {
-    return Padding(
-      padding: const EdgeInsets.only(left: 15, top: 8, bottom: 8),
-      child: CircleAvatar(backgroundImage: AssetImage(AppImages.person)),
+    return GestureDetector(
+      onTap: () => Get.to(ProfileScreen()),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 15, top: 8, bottom: 8),
+        child: CircleAvatar(backgroundImage: AssetImage(AppImages.person)),
+      ),
     );
   }
 
@@ -98,8 +103,8 @@ class HomeScreen extends GetView<ProductController> {
   Widget _buildSearchBar() {
     return InkWell(
       onTap: () {
+        controller.changeCategory('All');
         Get.to(() => SearchScreen());
-        controller.loadProducts();
       },
 
       child: Container(
@@ -149,9 +154,8 @@ class HomeScreen extends GetView<ProductController> {
       title: "New Arrivals",
       actionText: "View all",
       onActionTap: () {
+        controller.changeCategory('All');
         Get.to(() => SearchScreen());
-
-        controller.loadProducts();
       },
     );
   }

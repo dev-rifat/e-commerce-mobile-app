@@ -1,11 +1,12 @@
+import 'package:e_com_cub/app/moduls/profile/controllers/profile_controller.dart';
 import 'package:e_com_cub/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'app/global/bindings/global_bindings.dart';
 
 
-
 void main() async {
+  Get.put(ProfileController());
   runApp(const MyApp());
 }
 

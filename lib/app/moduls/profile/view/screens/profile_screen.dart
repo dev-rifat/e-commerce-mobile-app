@@ -6,7 +6,7 @@ import '../../controllers/profile_controller.dart';
 class ProfileScreen extends StatelessWidget {
   ProfileScreen({super.key});
 
-  final UserController userController = Get.put(UserController());
+  final ProfileController profileController = Get.find<ProfileController>();
 
   Widget _buildProfileRow({required IconData icon, required String label, required String value}) {
     return Padding(
@@ -46,11 +46,11 @@ class ProfileScreen extends StatelessWidget {
           children: [
             Obx(() => CircleAvatar(
               radius: 40,
-              backgroundImage: AssetImage(userController.userImage.value),
+              backgroundImage: AssetImage(profileController.userImage.value),
             )),
             const SizedBox(height: 20),
             Obx(() => Text(
-              userController.userName.value,
+              profileController.userName.value,
               style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             )),
             const SizedBox(height: 20),
@@ -68,15 +68,12 @@ class ProfileScreen extends StatelessWidget {
                     _buildProfileRow(
                         icon: Icons.email,
                         label: 'Email',
-                        value: userController.userEmail.value),
+                        value: profileController.userEmail.value),
                     _buildProfileRow(
                         icon: Icons.phone,
                         label: 'Contact Number',
-                        value: userController.userContact.value),
-                    _buildProfileRow(
-                        icon: Icons.emergency,
-                        label: 'Emergency Contact',
-                        value: userController.emergencyContact.value),
+                        value: profileController.userContact.value),
+
                   ],
                 )),
               ),
@@ -94,7 +91,7 @@ class ProfileScreen extends StatelessWidget {
                   'Logout',
                   style: TextStyle(color: Colors.red),
                 ),
-                onPressed: () => userController.logout(),
+                onPressed: () => profileController.logout(),
                 style: OutlinedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 14),
                   side: const BorderSide(color: Colors.red),

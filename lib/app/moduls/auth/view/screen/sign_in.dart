@@ -114,21 +114,8 @@ class SignInScreen extends StatelessWidget {
   }
 
   void _handleLogin() {
-
-    if(controller.emailController.text.isEmpty || controller.passwordController.text.isEmpty) {
-      // For demo: autofill test data, replace with actual validation + login call
-      controller.emailController.text = "rifat.dev@gmail.com";
-      controller.passwordController.text = "12345678";
-    }
     if (_formKey.currentState!.validate()) {
-      controller.isSignInLoading(true);
-
-      Timer(const Duration(seconds: 2), () {
-        controller.isSignInLoading(false);
-        controller.emailController.clear();
-        controller.passwordController.clear();
-        Get.offAllNamed(Routes.MAIN);
-      });
+      controller.signIn();
     }
   }
   Widget _buildNewUserCreate(BuildContext context) {

@@ -5,37 +5,62 @@
       "name": "Men's Wear",
       "price": 199.99,
       "image": "assets/images/products/pro-3.png",
-
-      "category": "Casual Wear"
+      "category": "Cloting"
     },
+
     {
       "id": 2,
+      "name": "Smart Watch",
+      "price": 259.99,
+      "image": "assets/images/png/e1.png",
+      "category": "Electronic"
+    }, {
+      "id": 3,
+      "name": "Apple Watch",
+      "price": 259.99,
+      "image": "assets/images/png/e2.png",
+      "category": "Electronic"
+    },
+    {
+      "id": 4,
+      "name": "Fresh Apples",
+      "price": 5.99,
+      "image": "assets/images/products/g1.jpg",
+      "category": "Grocery"
+    },{
+      "id": 5,
+      "name": "Fresh foods",
+      "price": 5.99,
+      "image": "assets/images/products/j3.jpg",
+      "category": "Grocery"
+    },{
+      "id": 6,
+      "name": "Fresh Milks",
+      "price": 5.99,
+      "image": "assets/images/products/g2.jpg",
+      "category": "Grocery"
+    },
+
+    {
+      "id": 7,
       "name": "Nike Air Max",
       "price": 123.99,
       "image": "assets/images/products/pro-2.png",
-      "category": "Fashion"
-    },{
-      "id": 3,
+      "category": "Cloting"
+    },
+    {
+      "id": 8,
       "name": "Men's Cotton",
       "price": 999.99,
       "image": "assets/images/products/pro-2.jpg",
-      "category": "Apparel"
-    },{
-      "id": 4,
+      "category": "Cloting"
+    },
+    {
+      "id": 9,
       "name": "Pepe Jeans",
       "price": 121.99,
       "image": "assets/images/products/pro-1.jpg",
-
-      "category": "Men's Wear"
-    },
-    {
-      "id": 5,
-      "name": "Wooden Dining Table",
-      "price": 259.99,
-      "image": "assets/images/products/pro-2.png",
-      "category": "Wardrobe"
+      "category": "Cloting"
     }
   ]
 }
-
-
